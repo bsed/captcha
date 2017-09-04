@@ -19,7 +19,7 @@ import (
 var (
 	flagImgW = flag.Int("width", captcha.StdWidth, "image captcha width")
 	flagImgH = flag.Int("height", captcha.StdHeight, "image captcha height")
-	fontFile = flag.String("ff", "Monospace.gob", "font file")
+	fontFile = flag.String("ff", "UbuntuMono.gob", "font file")
 )
 
 var formTemplate = template.Must(template.New("example").Parse(formTemplateSrc))
@@ -57,7 +57,7 @@ func main() {
 		log.Fatalf("Couldn't load font file")
 	}
 	captcha.AddFont("font", fn)
-	captcha.SetCharacterRange(captcha.C_UPPER)
+	captcha.SetCharacterRange(captcha.C_DIGIT)
 
 	http.HandleFunc("/", showFormHandler)
 	http.HandleFunc("/process", processFormHandler)
