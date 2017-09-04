@@ -1,5 +1,5 @@
 # captcha
-![]https://github.com/bsed/images/raw/master/2017/09/echo_captcha.png()
+![](https://github.com/bsed/images/raw/master/2017/09/echo_captcha.png)
 
 ## 纯数字验证码
 
