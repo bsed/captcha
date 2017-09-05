@@ -56,10 +56,10 @@ func NewImage(id string, digits []byte, width, height int) *Image {
 		m.drawDigit(getChar(n), x, y, prim)
 		x += m.numWidth + m.dotSize
 	}
-	m.strikeThrough(prim)
+	//m.strikeThrough(prim)
 
 	m.fillWithDistortCircles(distortCircleCount, width/4)
-	m.distort(m.rng.Float(5, 8), m.rng.Float(100, 180))
+	m.distort(m.rng.Float(5, 10), m.rng.Float(100, 180))
 	m.fillWithCircles(circleCount, m.dotSize)
 	return m
 }
