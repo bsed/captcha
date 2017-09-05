@@ -9,3 +9,6 @@
 
 ## 大小写和数字组合
 ![](https://raw.githubusercontent.com/bsed/images/master/2017/09/captcha_digits_upper_ligit.png)
+
+## 小写字母加数字
+![](https://raw.githubusercontent.com/bsed/images/master/2017/09/captcha_lowercase_digits.png)
