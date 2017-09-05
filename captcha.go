@@ -28,7 +28,9 @@ func New() string {
 
 func NewLen(length int) (id string) {
 	id = RandomId()
-	globalStore.Set(id, RandomDigits(length))
+	// or bb := RandomLDId(length)
+	bb := RandomDigits(length)
+	globalStore.Set(id, bb)
 	return
 }
 

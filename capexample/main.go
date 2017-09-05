@@ -57,7 +57,7 @@ func main() {
 		log.Fatalf("Couldn't load font file")
 	}
 	captcha.AddFont("font", fn)
-	captcha.SetCharacterRange(captcha.C_LOWER)
+	captcha.SetCharacterRange(captcha.C_UPPER)
 
 	http.HandleFunc("/", showFormHandler)
 	http.HandleFunc("/process", processFormHandler)

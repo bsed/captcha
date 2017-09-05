@@ -4,6 +4,7 @@ import (
 	"crypto/hmac"
 	"crypto/rand"
 	"crypto/sha256"
+	"fmt"
 	"io"
 )
 
@@ -16,11 +17,14 @@ const (
 
 var rand_mod byte = C_UPPER
 
-// idLen: caphcha id 的长度
-const idLen = 20
-
 // idChars 可以使用的字符
 var idChars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+var lowerCaseDigitsChar = []byte("abcdefghijklmnopqrstuvwxyz0123456789")
+
+const (
+	// idLen: caphcha id 的长度
+	idLen = 20
+)
 
 var rngKey [32]byte
 
@@ -54,7 +58,16 @@ func deriveSeed(purpose byte, id string, digits []byte) (out [16]byte) {
 }
 
 func RandomDigits(length int) []byte {
-	return randomBytesMod(length, rand_mod)
+	b := randomBytesMod(length, rand_mod)
+	if rand_mod == C_UPPER {
+		for i, c := range b {
+			if 9 < c && c < 36 {
+				b[i] = c + 26
+			}
+		}
+	}
+	return b
+	//return randomBytesMod(length, rand_mod)
 }
 
 func randomBytes(length int) (b []byte) {
@@ -98,4 +111,14 @@ func RandomId() string {
 		b[i] = idChars[c]
 	}
 	return string(b)
+}
+
+func RandomLDId(length int) []byte {
+	b := randomBytesMod(length, byte(len(lowerCaseDigitsChar)))
+	for i, c := range b {
+		if 10 < c && c < 36 {
+			b[i] = c + 26
+		}
+	}
+	return b
 }
