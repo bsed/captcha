@@ -25,7 +25,7 @@ type Image struct {
 	rng       siprng
 }
 
-var background color.Color = color.RGBA{144, 144, 144, 0xFF}
+var background color.Color = color.RGBA{255, 255, 255, 0xFF}
 
 func NewImage(id string, digits []byte, width, height int) *Image {
 	m := new(Image)
@@ -59,7 +59,7 @@ func NewImage(id string, digits []byte, width, height int) *Image {
 	//m.strikeThrough(prim)
 
 	m.fillWithDistortCircles(distortCircleCount, width/4)
-	m.distort(m.rng.Float(5, 10), m.rng.Float(100, 180))
+	//m.distort(m.rng.Float(5, 10), m.rng.Float(100, 180))
 	m.fillWithCircles(circleCount, m.dotSize)
 	return m
 }
