@@ -12,3 +12,6 @@
 
 ## 小写字母加数字
 ![](https://raw.githubusercontent.com/bsed/images/master/2017/09/captcha_lowercase_digits.png)
+
+## 白色背景/无线条（领导要求）
+![](https://raw.githubusercontent.com/bsed/images/master/2017/09/captcha_background_white.png)
