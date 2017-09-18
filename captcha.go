@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	DefaultLen = 6
+	DefaultLen = 4
 	CollectNum = 100
 	Expiration = 10 * time.Minute
 )

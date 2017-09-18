@@ -85,9 +85,20 @@ func RandomDigits(length int) []byte {
 	b := randomBytesMod(length, rand_mod)
 	if rand_mod == C_UPPER {
 		for i, c := range b {
+			if c == 0 {
+				b[i] = c + 2
+			}
+			if c == 1 {
+				b[i] = c + 1
+			}
+
 			if 9 < c && c < 36 {
 				b[i] = c + 26
 			}
+			if b[i] == 47 || b[i] == 44 || b[i] == 50 {
+				b[i]++
+			}
+
 		}
 	}
 	return b
